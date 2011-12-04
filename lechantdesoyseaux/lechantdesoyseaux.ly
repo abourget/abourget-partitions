@@ -3,13 +3,13 @@
 % wacky@bourget.cc
 %
 %
-#(ly:set-point-and-click 'line)
-\version "2.3.12"
+
+\version "2.12.3"
 
 
 \header {
 	title = "Le chant des oyseaux"
-	composer = "Clément Janequin"
+	composer = "ClÃ©ment Janequin"
 	date = "~ 1529"
 }
 
@@ -485,23 +485,23 @@ StaffD = \context Voice = "SD" \relative c {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PAROLES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-ParA = \lyrics {
-     Ré -- veil -- lez- vous, coeurs en -- dor -- mis, Le dieu d'a --
-     mours vous son -- ne, ré -- veil -- lez- vous,
+ParA = \lyricmode {
+     RÃ© -- veil -- lez- vous, coeurs en -- dor -- mis, Le dieu d'a --
+     mours vous son -- ne, rÃ© -- veil -- lez- vous,
 
-     Ré -- veil -- lez vous, coeurs en -- dor -- mis, Le dieu d'a --
+     RÃ© -- veil -- lez vous, coeurs en -- dor -- mis, Le dieu d'a --
      mours vous son --  ne.
 }
 
-ParB = \lyrics {
-     Ré -- veil -- lez- vous, coeurs en -- dor -- mis, __ coeurs en --
+ParB = \lyricmode {
+     RÃ© -- veil -- lez- vous, coeurs en -- dor -- mis, __ coeurs en --
      dor -- mis, Le dieu d'a -- mours vous son -- ne,
 
-     Ré -- veil -- lez vous, coeurs en -- dor -- mis, Le dieu d'a --
+     RÃ© -- veil -- lez vous, coeurs en -- dor -- mis, Le dieu d'a --
      mours vous son --  ne.
 % page 2
 
-  À ce pre -- mier jour de may Oy -- seaulx fe -- ront mer -- veil --
+  Ã€ ce pre -- mier jour de may Oy -- seaulx fe -- ront mer -- veil --
   les, Pour vous met -- tre hors d'e -- smay De -- stou -- pez voz o
   -- reil -- les.
   Et fa -- ri -- ra -- ri -- ron, 
@@ -524,19 +524,19 @@ ParB = \lyrics {
 
 }
 
-ParC = \lyrics {
+ParC = \lyricmode {
 
 }
 
-ParD = \lyrics {
+ParD = \lyricmode {
 
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Macros qui aident
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-colle = \set Lyrics.minimumVerticalExtent = #'(-0 . 0)
-colles = \set Staff.minimumVerticalExtent = #'(-0 . 0)
+colle = \override Lyrics.VerticalAxisGroup #'minimum-Y-extent = #'(-0 . 0)
+colles = \override Staff.VerticalAxisGroup #'minimum-Y-extent = #'(-0 . 0)
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -552,7 +552,7 @@ colles = \set Staff.minimumVerticalExtent = #'(-0 . 0)
 	    \override Score.BarNumber #'extra-offset = #'(0 . 0)
 
 	    \new Staff {
-		 \set Staff.instrument = "Soprano"
+		 \set Staff.instrumentName = "Soprano"
 		 \StaffA
 	    }
             \new Lyrics {
@@ -560,7 +560,7 @@ colles = \set Staff.minimumVerticalExtent = #'(-0 . 0)
                  \lyricsto "SA" \ParA
             }
 	    \new Staff {
-		 \set Staff.instrument = "Contralto"
+		 \set Staff.instrumentName = "Contralto"
 		 \StaffB
 	    }
             \new Lyrics {
@@ -568,7 +568,7 @@ colles = \set Staff.minimumVerticalExtent = #'(-0 . 0)
                  \lyricsto "SB" \ParB
             }
 	    \new Staff {
-		 \set Staff.instrument = "Ténor"
+		 \set Staff.instrumentName = "TÃ©nor"
 		 \StaffC
 	    }
             \new Lyrics {
@@ -576,7 +576,7 @@ colles = \set Staff.minimumVerticalExtent = #'(-0 . 0)
                  \lyricsto "SC" \ParC
             }
 	    \new Staff {
-		 \set Staff.instrument = "Basse"
+		 \set Staff.instrumentName = "Basse"
 		 \StaffD
 	    }
             \new Lyrics {
@@ -587,12 +587,18 @@ colles = \set Staff.minimumVerticalExtent = #'(-0 . 0)
        >>
 
 
-       \paper {
+       \layout {
 	      
        }
 	
-       \midi {
-	     \tempo 2=72
-       }
+       
+  \midi {
+    \context {
+      \Score
+      tempoWholesPerMinute = #(ly:make-moment 72 2)
+      }
+    }
+
+
 }
 

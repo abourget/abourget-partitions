@@ -2,12 +2,12 @@
 %
 %
 
-\version "2.3.12"
+\version "2.12.3"
 
 \header {
 	title = "Ce Moys de May"
 	subtitle = "S.A.T.B. A capella"
-	composer = "Clément Janequin (ca. 1485-1558)"
+	composer = "ClÃ©ment Janequin (ca. 1485-1558)"
 }
 
 StaffA = \context Voice = "SA" \relative c' {
@@ -97,7 +97,7 @@ StaffD = \context Voice = "SD" \relative c {
 %
 %
 
-ParoleA = \lyrics {
+ParoleA = \lyricmode {
 	Ce mos de may, ce moys de may, ce moys de may ma ver -- te cot -- te,
 	ce moys de may ma ver -- te cot -- te, ce moys de may je ve -- sti -- ray.
 	De bon ma -- tin me le -- ve -- ray, Ce jo -- ly, jo -- ly moys de may,
@@ -108,7 +108,7 @@ ParoleA = \lyrics {
 	Ce
 }
 
-ParoleD = \lyrics {
+ParoleD = \lyricmode {
 	Ce mos de may, ce moys de may ma ver -- te cot -- te, ce moys de may je ve -- sti -- ray.
 	De bon ma -- tin me le -- ve -- ray.
 	de bon ma -- tin me le -- ve -- ray: Un sault, trois saults, en ru -- e je fe -- ray
@@ -118,14 +118,14 @@ ParoleD = \lyrics {
 }
 
 
-% Version petite à 16 (ou 15 ?)
+% Version petite Ã  16 (ou 15 ?)
 %
 %
 #(set-global-staff-size 16)
 #(set-default-paper-size "letter")
 
-colle = \set Lyrics.minimumVerticalExtent = #'(-0 . 0)
-colles = \set Staff.minimumVerticalExtent = #'(-0 . 0)
+colle = \override Lyrics.VerticalAxisGroup #'minimum-Y-extent = #'(-0 . 0)
+colles = \override Staff.VerticalAxisGroup #'minimum-Y-extent = #'(-0 . 0)
 
 \score {
        \new ChoirStaff <<
@@ -134,7 +134,7 @@ colles = \set Staff.minimumVerticalExtent = #'(-0 . 0)
 
 	    \new Staff {
 		 \colles
-		 \set Staff.instrument = "Soprano"
+		 \set Staff.instrumentName = "Soprano"
 		 \tempo 4=300
 		 \StaffA
 	    }
@@ -144,7 +144,7 @@ colles = \set Staff.minimumVerticalExtent = #'(-0 . 0)
 	    }
 	    \new Staff { 
 		 \colles
-		 \set Staff.instrument = "Alto"
+		 \set Staff.instrumentName = "Alto"
 		 \StaffB
 	    }
 	    \new Lyrics {
@@ -153,7 +153,7 @@ colles = \set Staff.minimumVerticalExtent = #'(-0 . 0)
 	    }
 	    \new Staff {
 		 \colles
-		 \set Staff.instrument = "Ténor"
+		 \set Staff.instrumentName = "TÃ©nor"
 		 \StaffC
 	    }
 	    \new Lyrics {
@@ -162,7 +162,7 @@ colles = \set Staff.minimumVerticalExtent = #'(-0 . 0)
 	    }
 	    \new Staff {
 		 \colles
-		 \set Staff.instrument = "Basse"
+		 \set Staff.instrumentName = "Basse"
 		 \StaffD
 	    }
 	    \new Lyrics {
@@ -172,10 +172,16 @@ colles = \set Staff.minimumVerticalExtent = #'(-0 . 0)
 
        >>
 
-       \paper {
+       \layout {
 	      
        }
-       \midi {
-	     \tempo 4=300
-       }
+       
+  \midi {
+    \context {
+      \Score
+      tempoWholesPerMinute = #(ly:make-moment 300 4)
+      }
+    }
+
+
 }

@@ -1,6 +1,6 @@
 % version paper20
 
-\version "2.1.16"
+\version "2.12.3"
 
 #(set-global-staff-size 20)
 
@@ -9,19 +9,19 @@
 
 
 \score {
-    \context PianoStaff = yo <<
+    \context PianoStaff = "yo" <<
         
-        \context Staff = md \mainDroite
-        \context Staff = mg <<
+        \context Staff = "md" \mainDroite
+        \context Staff = "mg" <<
             \new Voice \mainGaucheVA
             \new Voice \mainGaucheVB
-            \new Voice \notes { s1*50 \break }
+            \new Voice  { s1*50 \break }
         >>
         
     >>
     
 
-    \paper {
+    \layout {
         papersize = "letter"
         interscoreline = -6\mm
         lastpagefill = 1

@@ -1,14 +1,14 @@
 % Fichier des NOTES de la Comptine de Yann Tiersen
 
-\version "2.1.16"
+\version "2.12.3"
 
 \header {
     composer = "Yann Tiersen"
-    title = "Comptine d'un autre été: l'après-midi"
+    title = "Comptine d'un autre Ã©tÃ©: l'aprÃ¨s-midi"
 }
 
 
-mainDroite = \notes \relative c'' {
+mainDroite =  \relative c'' {
     \clef treble
     \key g \major
     \time 4/4
@@ -20,13 +20,13 @@ mainDroite = \notes \relative c'' {
     
     % doubles avec blanche, 
     r8 g16 fis g8 b16 c b2 | r8 fis16 g fis8 g16 a g2 | r8 fis16 e fis8 b16 c b2 | r8 fis16 e fis2. | 
-    % répète
+    % rÃ©pÃ¨te
     r8 g16 fis g8 b16 c b2 | r8 fis16 g fis8 g16 a g2 | r8 fis16 e fis8 b16 c b2 | r8 fis16 e fis2. | 
     
     % pouing, pang noir. croche( blanche)
     e'4. b8 ~ b2 | d4. b8 ~ b2 | fis'4. b,8 ~ b2 | fis'4. a,8 ~ a2 | 
     
-    % pouing, pang noir. croche( blanche)  .. doublés (à la sixte) (2 mesures par lignes)
+    % pouing, pang noir. croche( blanche)  .. doublÃ©s (Ã  la sixte) (2 mesures par lignes)
     <b g'>4. <g e'>8 ~ <g e'>2 | <b g'>4. <g d'>8 ~ <g d'>2 |
     <b fis'>4. <fis d'>8 ~ <fis d'>2 | <a fis'>4. <fis d'>8 ~ <fis d'>2 | 
     
@@ -34,40 +34,40 @@ mainDroite = \notes \relative c'' {
     b16 e b' b, e b' b, e b' b, e b' b, e c e | b16 d b' b, d b' b, d b' b, d b' b, d a d |
     fis, b fis' fis, b fis' fis, b fis' fis, b fis' fis, b g b | a d a' a, d a' a, d a' a, d a' a, d g, d' |
     
-    % doubles répétition (2 mesures par lignes)
+    % doubles rÃ©pÃ©tition (2 mesures par lignes)
     b16 e b' b, e b' b, e b' b, e b' b, e c e | b16 d b' b, d b' b, d b' b, d b' b, d a d |
     fis, b fis' fis, b fis' fis, b fis' fis, b fis' fis, b g b | a d a' a, d a' a, d a' a, d a' a, d a'8 |
 
     
-    % doubles avec blanche,  répétition à l'octave (8va)
-    #(set-octavation 1)
+    % doubles avec blanche,  rÃ©pÃ©tition Ã  l'octave (8va)
+    \ottava #1
     r8 g16 fis g8 b16 c b2 | r8 fis16 g fis8 g16 a g2 | r8 fis16 e fis8 b16 c b2 | r8 fis16 e fis2. | 
-    % répète
+    % rÃ©pÃ¨te
     r8 g16 fis g8 b16 c b2 | r8 fis16 g fis8 g16 a g2 | r8 fis16 e fis8 b16 c b2 | r8 fis16 e fis2. | 
     
-    % pouing, pang noir. croche( blanche)  - RÉPÈTE À L'OCTAVE
+    % pouing, pang noir. croche( blanche)  - RÃ‰PÃˆTE Ã€ L'OCTAVE
     e'4. b8 ~ b2 | d4. b8 ~ b2 | fis'4. b,8 ~ b2 | fis'4. a,8 ~ a2 | 
     
-    % pouing, pang noir. croche( blanche)  .. doublés (à la sixte) (2 mesures par lignes)   - RÉPÈTE À L'OCTAVE
+    % pouing, pang noir. croche( blanche)  .. doublÃ©s (Ã  la sixte) (2 mesures par lignes)   - RÃ‰PÃˆTE Ã€ L'OCTAVE
     <b g'>4. <g e'>8 ~ <g e'>2 | <b g'>4. <g d'>8 ~ <g d'>2 |
     <b fis'>4. <fis d'>8 ~ <fis d'>2 | <a fis'>4. <fis d'>8 ~ <fis d'>2 |     
     
-    % doubles (2 mesures par lignes)  - RÉPÈTE À L'OCTAVE
+    % doubles (2 mesures par lignes)  - RÃ‰PÃˆTE Ã€ L'OCTAVE
     b16 e b' b, e b' b, e b' b, e b' b, e c e | b16 d b' b, d b' b, d b' b, d b' b, d a d |
     fis, b fis' fis, b fis' fis, b fis' fis, b fis' fis, b g b | a d a' a, d a' a, d a' a, d a' a, d g, d' |
     
-    % doubles répétition (2 mesures par lignes)  - RÉPÈTE À L'OCTAVE
+    % doubles rÃ©pÃ©tition (2 mesures par lignes)  - RÃ‰PÃˆTE Ã€ L'OCTAVE
     b16 e b' b, e b' b, e b' b, e b' b, e c e | b16 d b' b, d b' b, d b' b, d b' b, d a d |
     fis, b fis' fis, b fis' fis, b fis' fis, b fis' fis, b g b | a d a' a, d a' a, d a' a, d a' a, d a' g |    
     
     % mesure finale.
     <g, b e>1 \bar "|."
     
-    #(set-octavation 0)
+    \ottava #0
 }
 
 % voix du bas
-mainGaucheVA = \notes \relative c {
+mainGaucheVA =  \relative c {
     \clef bass
     \key g \major
     \time 4/4
@@ -78,35 +78,35 @@ mainGaucheVA = \notes \relative c {
     
     % ptites notes m. droite.
     e8 b' g b e, b' g b | d, b' g b d, b' g b | d, b' fis b d, b' fis b | d, a' fis a d, a' fis a |
-    % répète
+    % rÃ©pÃ¨te
     e8 b' g b e, b' g b | d, b' g b d, b' g b | d, b' fis b d, b' fis b | d, a' fis a d, a' fis a |
     
     % pouing, pang.... pouing, pang.
     e8 b' g b e, b' g b | d, b' g b d, b' g b | d, b' fis b d, b' fis b | d, a' fis a d, a' fis a |
-    % pouing, pang doublé
+    % pouing, pang doublÃ©
     e8 b' g b e, b' g b | d, b' g b d, b' g b | d, b' fis b d, b' fis b | d, a' fis a d, a' fis a |
     
     % doubles m.d
     e8 b' g b e, b' g b | d, b' g b d, b' g b | d, b' fis b d, b' fis b | d, a' fis a d, a' fis a |
-    % répète
+    % rÃ©pÃ¨te
     e8 b' g b e, b' g b | d, b' g b d, b' g b | d, b' fis b d, b' fis b | d, a' fis a d, a' fis a |
 
 
-    %% Répétition avec la main droite à l'octave.
+    %% RÃ©pÃ©tition avec la main droite Ã  l'octave.
 
     % ptites notes m. droite.
     e8 b' g b e, b' g b | d, b' g b d, b' g b | d, b' fis b d, b' fis b | d, a' fis a d, a' fis a |
-    % répète
+    % rÃ©pÃ¨te
     e8 b' g b e, b' g b | d, b' g b d, b' g b | d, b' fis b d, b' fis b | d, a' fis a d, a' fis a |
     
     % pouing, pang.... pouing, pang.
     e8 b' g b e, b' g b | d, b' g b d, b' g b | d, b' fis b d, b' fis b | d, a' fis a d, a' fis a |
-    % pouing, pang doublé
+    % pouing, pang doublÃ©
     e8 b' g b e, b' g b | d, b' g b d, b' g b | d, b' fis b d, b' fis b | d, a' fis a d, a' fis a |
     
     % doubles m.d
     e8 b' g b e, b' g b | d, b' g b d, b' g b | d, b' fis b d, b' fis b | d, a' fis a d, a' fis a |
-    % répète
+    % rÃ©pÃ¨te
     e8 b' g b e, b' g b | d, b' g b d, b' g b | d, b' fis b d, b' fis b | d, a' fis a d, a' d4 |
     
     % mesure finale.
@@ -117,7 +117,7 @@ mainGaucheVA = \notes \relative c {
 }
 
 % voix du haut
-mainGaucheVB = \notes \relative c' {
+mainGaucheVB =  \relative c' {
     %\clef bass
     %\key g \major
     %\time 4/4
@@ -129,35 +129,35 @@ mainGaucheVB = \notes \relative c' {
     
     % ptites notes m. droite.
     e4 e e e | d d d d | d d d d | d d d d |
-    % répète
+    % rÃ©pÃ¨te
     e4 e e e | d d d d | d d d d | d d d d |
     
     % pouing, pang.... pouing, pang.
     e4 e e e | d d d d | d d d d | d d d d |
-    % pouing, pang doublé
+    % pouing, pang doublÃ©
     e4 e e e | d d d d | d d d d | d d d d |
     
     % doubles m.d
     e4 e e e | d d d d | d d d d | d d d d |
-    % répète
+    % rÃ©pÃ¨te
     e4 e e e | d d d d | d d d d | d d d d |
 
 
-    %% Répétition avec la main droite à l'octave.
+    %% RÃ©pÃ©tition avec la main droite Ã  l'octave.
 
     % ptites notes m. droite.
     e4 e e e | d d d d | d d d d | d d d d |
-    % répète
+    % rÃ©pÃ¨te
     e4 e e e | d d d d | d d d d | d d d d |
     
     % pouing, pang.... pouing, pang.
     e4 e e e | d d d d | d d d d | d d d d |
-    % pouing, pang doublé
+    % pouing, pang doublÃ©
     e4 e e e | d d d d | d d d d | d d d d |
     
     % doubles m.d
     e4 e e e | d d d d | d d d d | d d d d |
-    % répète
+    % rÃ©pÃ¨te
     e4 e e e | d d d d | d d d d | d^\markup \italic { molto rit... } d d d |
     
     % mesure finale.

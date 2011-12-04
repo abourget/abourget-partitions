@@ -1,4 +1,4 @@
-\version "2.3.25"
+\version "2.12.3"
 
 \header {
     title = "God Rest You Merry, Gentlemen"
@@ -62,7 +62,7 @@ alto = \context Voice = "alto" \relative c' {
     \alternative { { e2. s4 \breathe } { e2._\fermata s4 \bar "|." } }
     
 
-%% ténor ligne deux:
+%% tÃ©nor ligne deux:
 %    fis2. e4 | g e fis b | b2 g4 g | g b b e, |
 %    fis2. gis4 | a a g? g | g g 
 
@@ -123,7 +123,7 @@ basse = \context Voice = "basse" \relative c {
 
 texteUn = \lyricmode {
     \set vocalName = "1."
-    \set vocNam = "1."
+    \set shortVocalName = "1."
 
     
     God rest you mer -- ry, gen -- tle -- men,
@@ -140,7 +140,7 @@ texteUn = \lyricmode {
 }
 texteDeux = \lyricmode {
     \set vocalName = "2."
-    \set vocNam = "2."
+    \set shortVocalName = "2."
 
     In Beth -- le -- em in Jew -- \skip 4 ry
     This bles -- sed Babe was born,
@@ -157,7 +157,7 @@ texteDeux = \lyricmode {
 }
 texteTrois = \lyricmode {
     \set vocalName = "3."
-    \set vocNam = "3."
+    \set shortVocalName = "3."
 
     From God our heaven -- ly Fa -- \skip 4 ther
     A bles -- sed an -- gel came,
@@ -183,9 +183,9 @@ texteQuatre = \lyricmode {
 #(set-global-staff-size 20)
 #(set-default-paper-size "letter")
 
-collelyrics = \set Lyrics.minimumVerticalExtent = #'(-1.5 . 1.5)
-collelyricsbas = \set Lyrics.minimumVerticalExtent = #'(-0.5 . 1.5)
-collestaff = \set Staff.minimumVerticalExtent = #'(-0 . 0)
+collelyrics = \override Lyrics.VerticalAxisGroup #'minimum-Y-extent = #'(-1.5 . 1.5)
+collelyricsbas = \override Lyrics.VerticalAxisGroup #'minimum-Y-extent = #'(-0.5 . 1.5)
+collestaff = \override Staff.VerticalAxisGroup #'minimum-Y-extent = #'(-0 . 0)
 italique = {
     \override Lyrics.LyricText #'font-shape = #'italic
     \override Lyrics.LyricText #'font-series = #'medium
@@ -196,15 +196,15 @@ medium = {
 barnum = {
     \override Score.BarNumber #'extra-offset = #'(0 . 0)
 }
-% Ici c'est pour mettre le nom de l'instrument a l'intérieur du staff. Merci! On l'insère dans les Lyrics.
+% Ici c'est pour mettre le nom de l'instrument a l'intÃ©rieur du staff. Merci! On l'insÃ¨re dans les Lyrics.
 vocalnamespace = {
-    \override Lyrics.VocalName #'break-align-symbol = #'key-signature
+    \override Lyrics.VocalName #'break-align-symbols = #'(key-signature)
 }
 tenorbasse = {
-    \set Staff.instrument = \markup { \column < "Ténor" { "Basse" } > }
+    \set Staff.instrumentName = \markup { \column { "TÃ©nor" { "Basse" } } }
 }
 sopranoalto = {
-    \set Staff.instrument = \markup { \column < "Soprano " { "Alto" } > }
+    \set Staff.instrumentName = \markup { \column { "Soprano " { "Alto" } } }
 }
 
 
@@ -243,11 +243,17 @@ sopranoalto = {
     \layout {
     }
     
-    \midi {
-	\tempo 4=94
+    
+  \midi {
+    \context {
+      \Score
+      tempoWholesPerMinute = #(ly:make-moment 94 4)
+      }
     }
+
+
 }
 
 \paper {
-  linewidth = 174
+  line-width = 174
 }

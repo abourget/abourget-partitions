@@ -1,8 +1,8 @@
-\version "2.4.0"
+\version "2.12.3"
 
 \header {
     composer = "Yann Tiersen"
-    title = "La valse d'Amélie"
+    title = "La valse d'AmÃ©lie"
 }
 
 
@@ -11,7 +11,7 @@ mdVoixA =  \relative c'' {
     \key a \minor
     \time 6/8
 
-    % début d'la tounne
+    % dÃ©but d'la tounne
     
     d4.\p ~ d4 ~ d16  c | b4. ~ \times 3/2 { b8 a } |
     d4. ~ d16 e d c b c | b4. ~ \times 3/2 { b8 a } |
@@ -25,7 +25,7 @@ mdVoixA =  \relative c'' {
     <c' c'>4. ~ <c c'>16 d c b c b | <e, e'>2. |
     
     
-    %% partie ou ça roule
+    %% partie ou Ã§a roule
     \stemUp
     d'4. \times 3/2 { d8 c } | b4. a |
     d4. \times 3/2 { d8 c } | b4. a |
@@ -37,7 +37,7 @@ mdVoixA =  \relative c'' {
     c4. \times 3/2 { c8 b } | g2. |
     \stemNeutral
     
-    %% partie où la basse est en furie.
+    %% partie oÃ¹ la basse est en furie.
     d'4. ~ d16 e f e f e | a,4. ~ a8 b8. c16 |
     d4. ~ d16 e f e f e | a,4. ~ \times 3/2 { a8 g } |
     a4. ~ a16 b c b c b | e,4. ~ e8 f8. g16 |
@@ -50,7 +50,7 @@ mdVoixA =  \relative c'' {
     
     
     
-    %% partie ou ça roule - répète! à l'octave, mais c'est la même chose!
+    %% partie ou Ã§a roule - rÃ©pÃ¨te! Ã  l'octave, mais c'est la mÃªme chose!
     \stemUp
     d''4. \times 3/2 { d8 c } | b4. a |
     d4. \times 3/2 { d8 c } | b4. a |
@@ -64,7 +64,7 @@ mdVoixA =  \relative c'' {
     
     % finale lente
     d4.\mp ~ d4 ~ d16 c | b4. ~ \times 3/2 { b8 a } |
-    %\markup { più lento }
+    %\markup { piÃ¹ lento }
     d4. ~d16 e d c b c | b2. |
     a2. \bar "|."
 }
@@ -89,8 +89,8 @@ mdVoixB =  \relative c' {
     %% partie ou la basse est en furie.
     s2.*16 % shhh :) 
     |
-    % encore répète à l'octave, avec le froufrou à la basse.
-    % même chose que tantôt.. juste des clapotis!
+    % encore rÃ©pÃ¨te Ã  l'octave, avec le froufrou Ã  la basse.
+    % mÃªme chose que tantÃ´t.. juste des clapotis!
     r16 e' f e f e r e f r e f | r d e d e d r c d e d c |
     r e f e f e r e f r e f | r d e d e d r c d e d c |
     r e f e f e r e f e f d | r d e d e d e d c e d c |
@@ -109,20 +109,20 @@ mgVoixA =  \relative c {
     \key a \minor
     \time 6/8
     
-    % début d'la tounne...
+    % dÃ©but d'la tounne...
     d4. <f a d> | a, <c e a b> |
     d <f a d> | a, <c e a b> |
     f <a c f> | c, <e g b> |
     f <a c f> | c, <e g b> |
     
-    % mêmes accords qu'au début début. pour répète
+    % mÃªmes accords qu'au dÃ©but dÃ©but. pour rÃ©pÃ¨te
     d <f a d> | a, <c e a b> |
     d <f a d> | a, <c e a b> |
     f <a c f> | c, <e g b> |
     f <a c f> | c, <e g b> |
     
     
-    %% partie ou ça roule
+    %% partie ou Ã§a roule
     d8 <f a> <f a> d8 <f a> <f a> | a, <c e a> <c e a> c <e a> <e a> |
     d <f a> <f a> d8 <f a> <f a> | a, <c e a> <c e a> c <e a> <e a> |
     
@@ -142,29 +142,29 @@ mgVoixA =  \relative c {
     d a' d e f a f e d a d, a' | a, e' a b c e c b a e a, e' |
     f, c' f g a c a g f c f, c' | c, g' c d e g e d c g c, g' |
     f c' f g a c a g f c f, c' | c, g' c d e g e d c g c, g' |
-    % on répète! la même chose.
+    % on rÃ©pÃ¨te! la mÃªme chose.
     d'16 a' d e f a f e d a d, a' | a, e' a b c e c b a e a, e' |
     d a' d e f a f e d a d, a' | a, e' a b c e c b a e a, e' |
     f, c' f g a c a g f c f, c' | c, g' c d e g e d c g c, g' |
     f c' f g a c a g f c f, c' | c, g' c d e g e d c g c, g' |
 
     
-    %% même chose ici, sauf que les dernières notes sont des croches, au 
+    %% mÃªme chose ici, sauf que les derniÃ¨res notes sont des croches, au 
     %% lieu des doubles croches.    
     d'16 a' d e f a f e d a d,8 | a16 e' a b c e c b a e a,8 |
     d16 a' d e f a f e d a d,8 | a16 e' a b c e c b a e a,8 |
-    % et en plus.. la partie avec fa et do, c'est à l'octave
+    % et en plus.. la partie avec fa et do, c'est Ã  l'octave
     f'16 c' f g a c a g f c f,8 | c16 g' c d e g e d c g c,8 |
     f16 c' f g a c a g f c f,8 | c16 g' c d e g e d c g c,8 |
-    % on répète! la même chose... mais encore même chose que juste avant
+    % on rÃ©pÃ¨te! la mÃªme chose... mais encore mÃªme chose que juste avant
     d16 a' d e f a f e d a d,8 | a16 e' a b c e c b a e a,8 |
     d16 a' d e f a f e d a d,8 | a16 e' a b c e c b a e a,8 |
-    % encore la diff ici c'est que c'est à l'octave.
+    % encore la diff ici c'est que c'est Ã  l'octave.
     f'16 c' f g a c a g f c f,8 | c16 g' c d e g e d c g c,8 |
     f16 c' f g a c a g f c f,8 | c16 g' c d e g e d c g c,8 |
 
 
-    %% même chose qu'au début :)
+    %% mÃªme chose qu'au dÃ©but :)
     d4. <f a d> | a, <c e a b> |
     d <f a d> |
 
@@ -207,7 +207,13 @@ mgVoixA =  \relative c {
         lastpagefill = 1
         interscorelinefill = 1
     }
-    \midi {
-        \tempo 4=95
+    
+  \midi {
+    \context {
+      \Score
+      tempoWholesPerMinute = #(ly:make-moment 95 4)
+      }
     }
+
+
 }

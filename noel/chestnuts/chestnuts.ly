@@ -1,4 +1,4 @@
-\version "2.1.3"
+\version "2.12.3"
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                  %
@@ -7,27 +7,27 @@
 %                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\include "paper16.ly"
+#(set-global-staff-size 16)
 
-%#(define flat '((raise . 0.2) (font-relative-size . -1) (music (named "accidentals--1"))))
-%#(define sharp '((raise . 0.4) (font-relative-size . -1) (music (named "accidentals-1"))))
+%#(define flat '((raise . 0.2) (font-relative-size . -1) (music (named "accidentals.mirroredflat"))))
+%#(define sharp '((raise . 0.4) (font-relative-size . -1) (music (named "accidentals.sharp.slashslash.stem"))))
 %#(define note '(columns (music "noteheads-2" ((kern . -0.1) ))))
 %#(define quarter-head `(columns ,note ((kern . -0.1) )))
 
 
 \header {
-    title = "Joyeux Noël"
-    composer = "Harm: Sylvie-Anne Ménard"
+    title = "Joyeux NoÃ«l"
+    composer = "Harm: Sylvie-Anne MÃ©nard"
     copyright = "youah"
 }
 
-texteA = \lyrics {
+texteA = \lyricmode {
     
 }
 
 
-SopranoA = \notes\relative c' {
-    \property Staff.instrument = #"Soprano"
+SopranoA = \relative c' {
+    \set Staff.instrumentName = #"Soprano"
     \clef violin
     \key e \major
     \time 4/4 
@@ -46,8 +46,8 @@ SopranoA = \notes\relative c' {
     fis4 fis8 fis fis a a g! | fis2. r8 fis 
     \bar ":|"
 }
-AltoB = \notes\relative c' {
-    \property Staff.instrument = #"Soprano et Alto"
+AltoB = \relative c' {
+    \set Staff.instrumentName = #"Soprano et Alto"
     \clef violin
     \key e \major
     \time 4/4 
@@ -66,8 +66,8 @@ AltoB = \notes\relative c' {
     c!4 e8 d! c c d d | dis!2. r8 dis 
     \bar ":|"
 }
-TenorC = \notes\relative c {
-    \property Staff.instrument = #"Tenor"
+TenorC = \relative c {
+    \set Staff.instrumentName = #"Tenor"
     \clef bass
     \key e \major
     \time 4/4 
@@ -86,8 +86,8 @@ TenorC = \notes\relative c {
     fis4 e8 e e e fis g! | a2 r 
     \bar ":|"
 }
-BassD = \notes\relative c {
-    \property Staff.instrument = #"Tenor et Basse"
+BassD = \relative c {
+    \set Staff.instrumentName = #"Tenor et Basse"
     \clef bass
     \key e \major
     \time 4/4 
@@ -108,7 +108,7 @@ BassD = \notes\relative c {
 }
 \score {
     \context ChoirStaff \simultaneous {
-        %\property Score.skipBars = ##t
+        %\set Score.skipBars = ##t
         
         \context Staff="Soprano" {
             << 
@@ -124,10 +124,16 @@ BassD = \notes\relative c {
         }
         
     }
-    \paper {
+    \layout {
         papersize = "letter"
     }
-    \midi {
-        \tempo 4=70
+    
+  \midi {
+    \context {
+      \Score
+      tempoWholesPerMinute = #(ly:make-moment 70 4)
+      }
     }
+
+
 }

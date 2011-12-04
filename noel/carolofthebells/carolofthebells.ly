@@ -1,4 +1,4 @@
-\version "2.4.0"
+\version "2.12.3"
 
 \header {
     title = "Carol of the Bells"
@@ -276,8 +276,8 @@ texteQuatre = \lyricmode {
 #(set-global-staff-size 16)
 #(set-default-paper-size "letter")
 
-colle = \set Lyrics.minimumVerticalExtent = #'(-0 . 0)
-collestaff = \set Staff.minimumVerticalExtent = #'(-0 . 0)
+colle = \override Lyrics.VerticalAxisGroup #'minimum-Y-extent = #'(-0 . 0)
+collestaff = \override Staff.VerticalAxisGroup #'minimum-Y-extent = #'(-0 . 0)
 italique = {
     \override Lyrics.LyricText #'font-shape = #'italic
     \override Lyrics.LyricText #'font-series = #'medium
@@ -288,15 +288,15 @@ medium = {
 barnum = {
     \override Score.BarNumber #'extra-offset = #'(0 . 0)
 }
-% Ici c'est pour mettre le nom de l'instrument a l'intérieur du staff. Merci! On l'insère dans les Lyrics.
+% Ici c'est pour mettre le nom de l'instrument a l'intÃ©rieur du staff. Merci! On l'insÃ¨re dans les Lyrics.
 vocalnamespace = {
-    \override Lyrics.VocalName #'break-align-symbol = #'key-signature
+    \override Lyrics.VocalName #'break-align-symbols = #'(key-signature)
 }
 tenorbasse = {
-    \set Staff.instrument = \markup { \column < "Ténor" { "Basse" } > }
+    \set Staff.instrumentName = \markup { \column { "TÃ©nor" { "Basse" } } }
 }
 sopranoalto = {
-    \set Staff.instrument = \markup { \column < "Sopra." { "Alto" } > }
+    \set Staff.instrumentName = \markup { \column { "Sopra." { "Alto" } } }
 }
 
 
@@ -307,7 +307,7 @@ sopranoalto = {
 	     \barnum % pour replacer les bar nums au bon endroit dans le ChoirStaff
 	     \new Staff {
 	         \collestaff
-                 \set Staff.instrument = "Soprano 1"
+                 \set Staff.instrumentName = "Soprano 1"
 		 \sop
 	     }
 	     \new Lyrics {
@@ -317,7 +317,7 @@ sopranoalto = {
 	     }
 	     \new Staff {
 		  \collestaff
-		  \set Staff.instrument = "Soprano 2"
+		  \set Staff.instrumentName = "Soprano 2"
 		  \alto
 	     }
 	     \new Lyrics {
@@ -327,7 +327,7 @@ sopranoalto = {
 	     }
 	     \new Staff {
 		  \collestaff
-		  \set Staff.instrument = "Alto"
+		  \set Staff.instrumentName = "Alto"
 		  \tenor
 	     }
 	     \new Lyrics {
@@ -352,16 +352,22 @@ sopranoalto = {
     >>
     
     \layout {
-%      raggedlastbottom = ##f
+%      ragged-last-bottom = ##f
 
     }
     
-    \midi {
-	\tempo 2=94
+    
+  \midi {
+    \context {
+      \Score
+      tempoWholesPerMinute = #(ly:make-moment 94 2)
+      }
     }
+
+
 }
 
 
 \paper {
-  linewidth = 174
+  line-width = 174
 }

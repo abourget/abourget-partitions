@@ -1,4 +1,4 @@
-\version "2.1.13"
+\version "2.12.3"
 
 #(set-global-staff-size 16)
 
@@ -7,7 +7,7 @@
     title = "La valse de l'idiot"
 }
 
-mainDroite = \notes \relative c'' {
+mainDroite =  \relative c'' {
 
     \clef treble
     \key g \minor
@@ -16,7 +16,7 @@ mainDroite = \notes \relative c'' {
     a4. f8 c' f, | c'4 e4. a,8 | c4 e4. a,8 | c2 a8 g |
     f4 a4. d,8 | f4 a4. d,8 | f4 a4. d,8 | f2. |
 
-    % même chose ici.. sauf la finale
+    % mÃªme chose ici.. sauf la finale
     a4. f8 c' f, | c'4 e4. a,8 | c4 e4. a,8 | c2 a8 g |
     f4 a4. d,8 | f4 a4. d,8 | f4 a4. d,8 | f2 c8 d  |
 
@@ -24,8 +24,8 @@ mainDroite = \notes \relative c'' {
     ees4 g a | \appoggiatura { g16[ a] } bes2 a8 bes | f'2 a,4 | bes4. c,8 ees g |
 
 
-    % ça devrait etre slplitté par 3 mesures ici...
-    % c'est pour ça que ca fit pas à la fin.
+    % Ã§a devrait etre slplittÃ© par 3 mesures ici...
+    % c'est pour Ã§a que ca fit pas Ã  la fin.
     d4. g8 bes a | f4. a8 c bes | d4 c bes | g4. c,8 ees g |
     d4. g8 bes a | f4. a8 c bes | d4 c bes | g4. c,8 ees g |
 
@@ -38,16 +38,16 @@ mainDroite = \notes \relative c'' {
 
 }
 
-mainGauche = \notes \relative c, {
+mainGauche =  \relative c, {
     \clef bass
     \key g \minor
     \time 3/4
 
-    % la main gauche c'est par cycle de 8 mesures contrairement à la main droite.
+    % la main gauche c'est par cycle de 8 mesures contrairement Ã  la main droite.
     f8 c' a'2 | bes,8 f' c'2 | a,8 e' c'2 | d,8 a' f'2 |
     g,,8 d' b'2 | bes,8 f' c'2 | ees,,8 bes' g'2 | d,8 a' f'2 |
 
-    %même chose sauf le premier f, relatif à une 8ve plus bas
+    %mÃªme chose sauf le premier f, relatif Ã  une 8ve plus bas
     f,8 c' a'2 | bes,8 f' c'2 | a,8 e' c'2 | d,8 a' f'2 |
     g,,8 d' b'2 | bes,8 f' c'2 | ees,,8 bes' g'2 | d,8 a' f'2 |
 
@@ -68,18 +68,24 @@ mainGauche = \notes \relative c, {
 
 \score {
     \simultaneous {
-        \context PianoStaff \notes <<
+        \context PianoStaff  <<
             \mainDroite \\
             \mainGauche
         >>
     }
-    \paper {
+    \layout {
         papersize = "letter"
         interscoreline = 1\pt
     }
-    \midi {
-        \tempo 4=90
+    
+  \midi {
+    \context {
+      \Score
+      tempoWholesPerMinute = #(ly:make-moment 90 4)
+      }
     }
+
+
 
 
 }

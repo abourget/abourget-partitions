@@ -1,6 +1,6 @@
 % version paper16
 
-\version "2.1.16"
+\version "2.12.3"
 
 #(set-global-staff-size 16)
 
@@ -18,13 +18,19 @@
     >>
     
 
-    \paper {
+    \layout {
         papersize = "letter"
         interscoreline = -3\mm
         lastpagefill = 1
         interscorelinefill = 1
     }
-    \midi {
-        \tempo 4=100
+    
+  \midi {
+    \context {
+      \Score
+      tempoWholesPerMinute = #(ly:make-moment 100 4)
+      }
     }
+
+
 }

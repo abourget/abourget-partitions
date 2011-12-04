@@ -1,12 +1,12 @@
-\version "2.1.20"
+\version "2.5.18"
 
 \header {
     composer = "Yann Tiersen"
     title = "La dispute"
-    subtitle = "Le fabuleux destin d'Amélie Poulain"
+    subtitle = "Le fabuleux destin d'AmÃ©lie Poulain"
 }
 
-mdVoixA = \notes \relative c' {
+mdVoixA =  \relative c' {
     \key c \minor
     \time 3/4
     \clef treble
@@ -20,13 +20,13 @@ mdVoixA = \notes \relative c' {
     ees2. | c'2 ~ c8. ees,16 |
     d2. | b'2 ~ b8. d,16 |
     c2 ~ c8. d16 | ees4 f g |
-    % répète genre.. même chose.. ici sauf les dernièrse mesures
+    % rÃ©pÃ¨te genre.. mÃªme chose.. ici sauf les derniÃ¨rse mesures
     f2. | c'2 ~ c8. f,16 |
     ees2. | c'2 ~ c8. ees,16 |
     d2. | b'2 ~ b8. d,16 |
     c2. ~ | c2.
     
-    %% mêmes choses mais à l'octave ?!
+    %% mÃªmes choses mais Ã  l'octave ?!
     <ees ees'>2. | <bes' bes'>2 ~ <bes bes'>8. <ees, ees'>16 | 
     <d d'>2. | <b' b'>2 ~ <b b'>8. <d, d'>16 | 
     <ees ees'>2. | <bes' bes'>2 ~ <bes bes'>8. <ees, ees'>16 | 
@@ -36,16 +36,16 @@ mdVoixA = \notes \relative c' {
     <ees ees'>2. | <c' c'>2 ~ <c c'>8. <ees, ees'>16 |
     <d d'>2. | <b' b'>2 ~ <b b'>8. <d, d'>16 |
     <c c'>2 ~ <c c'>8. <d d'>16 | <ees ees'>4 <f f'> <g g'> |
-    % répète genre.. même chose.. ici sauf les dernièrse mesures
+    % rÃ©pÃ¨te genre.. mÃªme chose.. ici sauf les derniÃ¨rse mesures
     <f f'>2. | <c' c'>2 ~ <c c'>8. <f, f'>16 |
     <ees ees'>2. | <c' c'>2 ~ <c c'>8. <ees, ees'>16 |
     <d d'>2. | <b' b'>2 ~ <b b'>8. <d, d'>16 |
     <c c'>2. ~ | <c c'>2.
 
 
-    \override autoBeamSettings #'(begin 1 8 3 4) = #(ly:make-moment 1 1)
+    #(override-auto-beam-setting '(begin 1 8 3 4)  1 1)
     
-    %% partie plus allante avec les croches à la basse
+    %% partie plus allante avec les croches Ã  la basse
     ees'2. ~ | ees4 d4. c8 | b2. ~ | b4 c4. d8 |
     ees2. ~ | ees2 d4 | b2. ~ | b |
     c ~ | c2 ~ c8 d | c2. ~ | c |
@@ -53,7 +53,7 @@ mdVoixA = \notes \relative c' {
     c2 d4 | c2. ~ | c | b ~ | b | c ~ | c | 
     
     
-    %% ici partie est octaves brisés à la m.d.
+    %% ici partie est octaves brisÃ©s Ã  la m.d.
     ees'8 ees, ees' ees, ees' ees, | ees' ees, ees' d d, c' |
     b b, b' b, b' b, | b' b, c' c, d' d, |
     ees' ees, ees' ees, ees' ees, | ees' ees, ees' d d, d' |
@@ -70,7 +70,7 @@ mdVoixA = \notes \relative c' {
     c'4 g ees | c2. \bar "|."
 }
 
-mgVoixA = \notes \relative c {
+mgVoixA =  \relative c {
     \key c \minor
     \time 3/4
     \clef bass
@@ -85,14 +85,14 @@ mgVoixA = \notes \relative c {
     d <g b> <g b> | d <g b> <g b> | 
     c, <ees g> <ees g> | c <ees g> <ees g> | 
     
-    % ici on répète les 8 mesures précédentes.
+    % ici on rÃ©pÃ¨te les 8 mesures prÃ©cÃ©dentes.
     f <aes c> <aes c> | f <aes c> <aes c> | 
     ees <g c> <g c> | ees <g c> <g c> | 
     d <g b> <g b> | d <g b> <g b> | 
     c, <ees g> <ees g> | c <ees g> <ees g> | 
     
-    % ici on début à la m.d. avec l'octave.
-    % c'est exactement la même chose que les genre 18 premières mesures.
+    % ici on dÃ©but Ã  la m.d. avec l'octave.
+    % c'est exactement la mÃªme chose que les genre 18 premiÃ¨res mesures.
     ees g bes | ees,4 <g bes> <g bes> |
     d <g b> <g b> | d <g b> <g b> | 
     ees4 <g bes> <g bes> | ees4 <g bes> <g bes> |
@@ -103,15 +103,15 @@ mgVoixA = \notes \relative c {
     d <g b> <g b> | d <g b> <g b> | 
     c, <ees g> <ees g> | c <ees g> <ees g> | 
     
-    % ici on répète les 8 mesures précédentes.
+    % ici on rÃ©pÃ¨te les 8 mesures prÃ©cÃ©dentes.
     f <aes c> <aes c> | f <aes c> <aes c> | 
     ees <g c> <g c> | ees <g c> <g c> | 
     d <g b> <g b> | d <g b> <g b> | 
     c, <ees g> <ees g> | c <ees g> <ees g> | 
     
     
-    %% partie plus allante avec les croches à la basse
-    \override autoBeamSettings #'(begin 1 8 3 4) = #(ly:make-moment 1 1)
+    %% partie plus allante avec les croches Ã  la basse
+    #(override-auto-beam-setting '(begin 1 8 3 4)  1 1)
     
     ees8 bes' ees bes f' bes, | ees, bes' ees bes f' bes, | 
     d, g b d b g | d g b d b g | 
@@ -126,7 +126,7 @@ mgVoixA = \notes \relative c {
     b d g b g d | b d g b g d | 
     c ees g c g ees | c ees g c g ees |
 
-    %% même chose mais avec des octaves brisées  à la main droite.
+    %% mÃªme chose mais avec des octaves brisÃ©es  Ã  la main droite.
     ees bes' ees bes f' bes, | ees, bes' ees bes f' bes, | 
     d, g b d b g | d g b d b g | 
     ees8 bes' ees bes f' bes, | ees, bes' ees bes f' bes, | 
@@ -158,7 +158,7 @@ mgVoixA = \notes \relative c {
     >>
 
 
-    \paper {
+    \layout {
         papersize = "letter"
         interscoreline = 1\mm
         lastpagefill = 1

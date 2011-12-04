@@ -1,4 +1,4 @@
-\version "2.2.0"
+\version "2.12.3"
 \header {
     copyright = "Unknown"
     subtitle = "blank"
@@ -8,13 +8,13 @@
 }
 #(set-global-staff-size 20)
 \score {
-    \notes <<
+     <<
         % force offset of colliding notes in chords:
         \override Score.NoteColumn #'force-hshift = #1.0
         \time 4/4
 
         \context Staff = "track 1" << 
-            \set Staff.instrument = "track"
+            \set Staff.instrumentName = "track"
             \context Voice = "voice 0" {
                 \override Voice.TextScript #'padding = #2.0
 
@@ -46,7 +46,7 @@
         >> % Staff
 
         \context Staff = "track 2" << 
-            \set Staff.instrument = "track"
+            \set Staff.instrumentName = "track"
             \context Voice = "voice 1" {
                 \override Voice.TextScript #'padding = #2.0
 
@@ -78,7 +78,7 @@
         >> % Staff
 
         \context Staff = "track 3" << 
-            \set Staff.instrument = "track"
+            \set Staff.instrumentName = "track"
             \context Voice = "voice 2" {
                 \override Voice.TextScript #'padding = #2.0
 
@@ -110,7 +110,7 @@
         >> % Staff
 
         \context Staff = "track 4" << 
-            \set Staff.instrument = "track"
+            \set Staff.instrumentName = "track"
             \context Voice = "voice 3" {
                 \override Voice.TextScript #'padding = #2.0
 
@@ -141,5 +141,5 @@
 
         >> % Staff (final)
     >> % notes
-    \paper { papersize = "letter" }
+    \layout { papersize = "letter" }
 } % score

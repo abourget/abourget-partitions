@@ -1,4 +1,4 @@
-\version "2.4.0"
+\version "2.12.3"
 
 \header {
     title = "Greensleeves"
@@ -159,7 +159,7 @@ basse = \context Voice = "basse" \relative c' {
 
 texteUn = \lyricmode {
     \set vocalName = "1."
-    %\set vocNam = "1."
+    %\set shortVocalName = "1."
 
     The old year now __ a -- away is fled
     The New year it __ is en -- te -- red.
@@ -175,13 +175,13 @@ texteUn = \lyricmode {
 }
 texteDeux = \lyricmode {
     \set vocalName = "2. 3."
-    %\set vocNam = "2."
+    %\set shortVocalName = "2."
 
     ``ahh'' et ``ohhs''
 }
 texteTrois = \lyricmode {
     \set vocalName = "4."
-    %\set vocNam = "3."
+    %\set shortVocalName = "3."
 
     And now with New Year's gifts
     each friend __ un -- to each
@@ -196,7 +196,7 @@ texteTrois = \lyricmode {
 }
 texteQuatre = \lyricmode {
     \set vocalName = "4."
-    %\set vocNam = "4."
+    %\set shortVocalName = "4."
 
 
 }
@@ -207,9 +207,9 @@ texteQuatre = \lyricmode {
 #(set-global-staff-size 20)
 #(set-default-paper-size "letter")
 
-collelyrics = \set Lyrics.minimumVerticalExtent = #'(-1.5 . 1.5)
-collelyricsbas = \set Lyrics.minimumVerticalExtent = #'(-0.5 . 1.5)
-collestaff = \set Staff.minimumVerticalExtent = #'(-0 . 0)
+collelyrics = \override Lyrics.VerticalAxisGroup #'minimum-Y-extent = #'(-1.5 . 1.5)
+collelyricsbas = \override Lyrics.VerticalAxisGroup #'minimum-Y-extent = #'(-0.5 . 1.5)
+collestaff = \override Staff.VerticalAxisGroup #'minimum-Y-extent = #'(-0 . 0)
 italique = {
     \override Lyrics.LyricText #'font-shape = #'italic
     \override Lyrics.LyricText #'font-series = #'medium
@@ -220,15 +220,15 @@ medium = {
 barnum = {
     \override Score.BarNumber #'extra-offset = #'(0 . 0)
 }
-% Ici c'est pour mettre le nom de l'instrument a l'intérieur du staff. Merci! On l'insère dans les Lyrics.
+% Ici c'est pour mettre le nom de l'instrument a l'intÃ©rieur du staff. Merci! On l'insÃ¨re dans les Lyrics.
 vocalnamespace = {
-    \override Lyrics.VocalName #'break-align-symbol = #'key-signature
+    \override Lyrics.VocalName #'break-align-symbols = #'(key-signature)
 }
 tenorbasse = {
-    \set Staff.instrument = \markup { \column < "Ténor" { "Basse" } > }
+    \set Staff.instrumentName = \markup { \column { "TÃ©nor" { "Basse" } } }
 }
 sopranoalto = {
-    \set Staff.instrument = \markup { \column < "Soprano " { "Alto" } > }
+    \set Staff.instrumentName = \markup { \column { "Soprano " { "Alto" } } }
 }
 
 
@@ -269,8 +269,14 @@ sopranoalto = {
     \layout {
     }
     
-    \midi {
-	\tempo 4=94
+    
+  \midi {
+    \context {
+      \Score
+      tempoWholesPerMinute = #(ly:make-moment 94 4)
+      }
     }
+
+
 }
 

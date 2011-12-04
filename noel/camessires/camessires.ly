@@ -1,11 +1,11 @@
-\version "2.3.25"
+\version "2.12.3"
 
 \header {
-    title = "Ça, Messires"
+    title = "Ã‡a, Messires"
     %subtitle = ""
     %subsubtitle = ""
     %poet = ""
-    composer = "Noëls Canadiens"
+    composer = "NoÃ«ls Canadiens"
     %meter = ""
     %opus = ""
     %arranger = ""
@@ -121,13 +121,13 @@ basse = \context Voice = "basse" \relative c {
 
 sopUn = \lyricmode {
     \set vocalName = "1."
-    %\set vocNam = "1."
+    %\set shortVocalName = "1."
 
 
-    Ça, mes -- si -- res, sa -- vez- vous
+    Ã‡a, mes -- si -- res, sa -- vez- vous
     L'heu -- reu -- se nou -- vel -- le_?
 
-    Ça, mes -- si -- res, sa -- vez- vous
+    Ã‡a, mes -- si -- res, sa -- vez- vous
     L'heu -- reu -- se nou -- vel -- le_?
 
     Un Sau -- veur des -- cend vers nous.
@@ -145,7 +145,7 @@ sopUn = \lyricmode {
 }
 sopDeux = \lyricmode {
     \set vocalName = "2."
-    %\set vocNam = "2."
+    %\set shortVocalName = "2."
 
     Que l'hi -- ver et ses fri -- mas,
     Ait dur -- ci la plai -- ne
@@ -154,26 +154,26 @@ sopDeux = \lyricmode {
     Ait dur -- ci la plai -- ne
 
     S'il croit ar -- r\^e ter nos pas
-    Son es -- pé -- rance est vai -- ne.
+    Son es -- pÃ© -- rance est vai -- ne.
 
     Qui cherche un Dieu plein d'ap -- pas
     Point ne craint pei -- ne.
 
     S'il croit ar -- r\^e ter nos pas
-    Son es -- pé -- rance est vai -- ne.
+    Son es -- pÃ© -- rance est vai -- ne.
 
     Qui cherche un Dieu plein d'ap -- pas
     Point ne craint pei -- ne.
 }
 sopTrois = \lyricmode {
     \set vocalName = "3."
-    %\set vocNam = "3."
+    %\set shortVocalName = "3."
 
     Sa nais -- san -- ce sur nos bords
-    S\`e-- me l'al -- lé -- gres -- se
+    S\`e-- me l'al -- lÃ© -- gres -- se
 
     Sa nais -- san -- ce sur nos bords
-    S\`e-- me l'al -- lé -- gres -- se
+    S\`e-- me l'al -- lÃ© -- gres -- se
 
     R\'e -- pon -- dons par nos trans -- ports,
     A l'ar -- deur qui le pres -- se.
@@ -193,12 +193,12 @@ sopTrois = \lyricmode {
 
 altenUn = \lyricmode {
     \set vocalName = "1."
-    %\set vocNam = "1."
+    %\set shortVocalName = "1."
 
     La, la, la, la
     la, la, la, la, la.
 
-    Ça, mes -- si -- res, sa -- vez- vous
+    Ã‡a, mes -- si -- res, sa -- vez- vous
     L'heu -- reu -- se nou -- vel -- le_?
 
     la la la la    la la la la la    la la la la  la la.
@@ -215,7 +215,7 @@ altenUn = \lyricmode {
 }
 altenDeux = \lyricmode {
     \set vocalName = "2."
-    %\set vocNam = "2."
+    %\set shortVocalName = "2."
 
     \repeat "unfold" 9 \skip 1
 
@@ -227,7 +227,7 @@ altenDeux = \lyricmode {
     \repeat "unfold" 10 \skip 1
 
     S'il croit ar -- r\^e ter nos pas
-    Son es -- pé -- rance est vai -- ne.
+    Son es -- pÃ© -- rance est vai -- ne.
 
     Qui cherche un Dieu plein d'ap -- pas
     Point ne craint pei -- ne.
@@ -235,12 +235,12 @@ altenDeux = \lyricmode {
 }
 altenTrois = \lyricmode {
     \set vocalName = "3."
-    %\set vocNam = "3."
+    %\set shortVocalName = "3."
 
     \repeat "unfold" 9 \skip 1
 
     Sa nais -- san -- ce sur nos bords
-    S\`e-- me l'al -- lé -- gres -- se
+    S\`e-- me l'al -- lÃ© -- gres -- se
 
     \repeat "unfold" 15 \skip 1
 
@@ -258,9 +258,9 @@ altenTrois = \lyricmode {
 #(set-global-staff-size 15.6)
 #(set-default-paper-size "letter")
 
-collelyrics = \set Lyrics.minimumVerticalExtent = #'(-1.5 . 1.5)
-collelyricsbas = \set Lyrics.minimumVerticalExtent = #'(-0.5 . 1.5)
-collestaff = \set Staff.minimumVerticalExtent = #'(-0 . 0)
+collelyrics = \override Lyrics.VerticalAxisGroup #'minimum-Y-extent = #'(-1.5 . 1.5)
+collelyricsbas = \override Lyrics.VerticalAxisGroup #'minimum-Y-extent = #'(-0.5 . 1.5)
+collestaff = \override Staff.VerticalAxisGroup #'minimum-Y-extent = #'(-0 . 0)
 italique = {
     \override Lyrics.LyricText #'font-shape = #'italic
     \override Lyrics.LyricText #'font-series = #'medium
@@ -271,21 +271,21 @@ medium = {
 barnum = {
     \override Score.BarNumber #'extra-offset = #'(0 . 0)
 }
-% Ici c'est pour mettre le nom de l'instrument a l'intérieur du staff. Merci! On l'insère dans les Lyrics.
+% Ici c'est pour mettre le nom de l'instrument a l'intÃ©rieur du staff. Merci! On l'insÃ¨re dans les Lyrics.
 vocalnamespace = {
-    \override Lyrics.VocalName #'break-align-symbol = #'key-signature
+    \override Lyrics.VocalName #'break-align-symbols = #'(key-signature)
 }
 sopranoinst = {
-  \set Staff.instrument = \markup {  "Soprano" }
-  \set Staff.instr = \markup { "Sop." }
+  \set Staff.instrumentName = \markup {  "Soprano" }
+  \set Staff.shortInstrumentName = \markup { "Sop." }
 }
 altotenorinst = {
-    \set Staff.instrument = \markup { \column < "Ténor I" { "Ténor II" } > }
-    \set Staff.instr = \markup  { \column < "T.I" { "T.II" } > }
+    \set Staff.instrumentName = \markup { \column { "TÃ©nor I" { "TÃ©nor II" } } }
+    \set Staff.shortInstrumentName = \markup  { \column { "T.I" { "T.II" } } }
 }
 basseinst = {
-  \set Staff.instrument = \markup {  "Basse" }
-  \set Staff.instr = \markup { "B." }
+  \set Staff.instrumentName = \markup {  "Basse" }
+  \set Staff.shortInstrumentName = \markup { "B." }
 }
 
 
@@ -342,11 +342,17 @@ basseinst = {
     \layout {
     }
     
-    \midi {
-	\tempo 4=88
+    
+  \midi {
+    \context {
+      \Score
+      tempoWholesPerMinute = #(ly:make-moment 88 4)
+      }
     }
+
+
 }
 
 \paper {
-  linewidth = 174
+  line-width = 174
 }

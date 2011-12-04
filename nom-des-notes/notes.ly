@@ -1,8 +1,8 @@
 %
-% Notes à imprimer pour les flots
+% Notes Ã  imprimer pour les flots
 %
 
-\version "2.4.2"
+\version "2.12.3"
 
 
 \layout {

@@ -1,7 +1,7 @@
-\version "2.3.25"
+\version "2.12.3"
 
 \header {
-    title = "Le Sommeil de l'Enfant Jésus"
+    title = "Le Sommeil de l'Enfant JÃ©sus"
     subtitle = "The Sleep Of The Child Jesus"
     %subsubtitle = ""
     %poet = ""
@@ -99,7 +99,7 @@ basse = \context Voice = "basse" \relative c {
 
 sopUn = \lyricmode {
     \set stanza = "1. "
-    En -- tre le boeuf et l'â -- ne gris,
+    En -- tre le boeuf et l'Ã¢ -- ne gris,
 }
 
 sopUnUn = \lyricmode {
@@ -119,15 +119,15 @@ sopUnTrois = \lyricmode {
 sopDeux = \lyricmode {
    Dors, dors, dors, le pe -- tit Fils:
     Mille an -- ges di -- vins,
-    mil -- le sé -- ra -- phins,
-    Vo -- lent à l'en -- tour
+    mil -- le sÃ© -- ra -- phins,
+    Vo -- lent Ã  l'en -- tour
     de ce grand Dieu __ d'a -- mour. __
    Dors, dors!
 }
 
 tenorAltoUn = \lyricmode {
     %\set vocalName = "2."
-    %\set vocNam = "2."
+    %\set shortVocalName = "2."
 
 
     Dors, dors, __
@@ -136,14 +136,14 @@ tenorAltoUn = \lyricmode {
 }
 tenorAltoDeux = \lyricmode {
     %\set vocalName = "4."
-    %\set vocNam = "4."
+    %\set shortVocalName = "4."
 
     Dors, __ dors, dors, __
     Roi des an -- ges, dors!
 }
 basseUn = \lyricmode {
     %\set vocalName = "3."
-    %\set vocNam = "3."
+    %\set shortVocalName = "3."
 
     Dors, dors, dors, __
     En -- fant di -- vin!
@@ -159,10 +159,10 @@ basseDeux = \lyricmode {
 #(set-global-staff-size 17)
 #(set-default-paper-size "letter")
 
-collelyrics = \set Lyrics.minimumVerticalExtent = #'(-2 . 2)
-collelyricsplus = \set Lyrics.minimumVerticalExtent = #'(-1 . 1)
-collelyricsbas = \set Lyrics.minimumVerticalExtent = #'(-0.5 . 1.5)
-collestaff = \set Staff.minimumVerticalExtent = #'(-0 . 0)
+collelyrics = \override Lyrics.VerticalAxisGroup #'minimum-Y-extent = #'(-2 . 2)
+collelyricsplus = \override Lyrics.VerticalAxisGroup #'minimum-Y-extent = #'(-1 . 1)
+collelyricsbas = \override Lyrics.VerticalAxisGroup #'minimum-Y-extent = #'(-0.5 . 1.5)
+collestaff = \override Staff.VerticalAxisGroup #'minimum-Y-extent = #'(-0 . 0)
 italique = {
     \override Lyrics.LyricText #'font-shape = #'italic
     \override Lyrics.LyricText #'font-series = #'medium
@@ -173,15 +173,15 @@ medium = {
 barnum = {
     \override Score.BarNumber #'extra-offset = #'(0 . 0)
 }
-% Ici c'est pour mettre le nom de l'instrument a l'intérieur du staff. Merci! On l'insère dans les Lyrics.
+% Ici c'est pour mettre le nom de l'instrument a l'intÃ©rieur du staff. Merci! On l'insÃ¨re dans les Lyrics.
 vocalnamespace = {
-    \override Lyrics.VocalName #'break-align-symbol = #'key-signature
+    \override Lyrics.VocalName #'break-align-symbols = #'(key-signature)
 }
 tenorbasse = {
-    \set Staff.instrument = \markup { \column < "Ténor" { "Basse" } > }
+    \set Staff.instrumentName = \markup { \column { "TÃ©nor" { "Basse" } } }
 }
 sopranoalto = {
-    \set Staff.instrument = \markup { \column < "Soprano " { "Alto" } > }
+    \set Staff.instrumentName = \markup { \column { "Soprano " { "Alto" } } }
 }
 
 
@@ -192,7 +192,7 @@ sopranoalto = {
 	     \barnum % pour replacer les bar nums au bon endroit dans le ChoirStaff
 	     \new Staff {
 		 %\sopranoalto
-	         \set Staff.instrument = "Soprano "
+	         \set Staff.instrumentName = "Soprano "
 		 \sop
 	     }
 	     \new Lyrics {
@@ -214,7 +214,7 @@ sopranoalto = {
 	     }
 	     \new Staff {
 		 %\sopranoalto
-	         \set Staff.instrument = "Alto"
+	         \set Staff.instrumentName = "Alto"
 		 \alto
 	     }
 	     \new Lyrics {
@@ -224,7 +224,7 @@ sopranoalto = {
 	     }
 	     \new Staff {
 		 %\sopranoalto
-	         \set Staff.instrument = "Ténor"
+	         \set Staff.instrumentName = "TÃ©nor"
 		 \tenor
 	     }
 	     \new Lyrics {
@@ -234,7 +234,7 @@ sopranoalto = {
 	     }
 	     \new Staff {
 		  %\tenorbasse
-	         \set Staff.instrument = "Basse"
+	         \set Staff.instrumentName = "Basse"
 		  \basse
 	     }
 	     \new Lyrics {
@@ -247,11 +247,17 @@ sopranoalto = {
     \layout {
     }
     
-    \midi {
-	\tempo 4=94
+    
+  \midi {
+    \context {
+      \Score
+      tempoWholesPerMinute = #(ly:make-moment 94 4)
+      }
     }
+
+
 }
 
 \paper {
-  linewidth = 174
+  line-width = 174
 }
