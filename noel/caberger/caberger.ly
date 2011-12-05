@@ -1,7 +1,7 @@
 \version "2.12.3"
 
 \header {
-    title = "Ça, bergers, assemblons-nous."
+    title = "Çà, bergers, assemblons-nous."
     composer = "Harmonisation: R-M Chiasson"
 }
 
@@ -19,13 +19,13 @@ sop = \context Voice = "sop" \relative do'' {
   \dynamicUp
   \clef treble
     
-  dod4\f dod | re re | dod dod | si r8. si16 |
+  dod4\f dod | re re | dod dod | si r8 si |
   dod4 dod | re re | dod2 | si4 r |
 
-  si4 dod | si la | sold fad | mi r8. si'16 |
+  si4\mf dod | si la | sold fad | mi r8 si' |
   si4. dod8 | re4 dod | si2 | la4 r |
 
-  si4 dod | si la | si8 la sold fad | mi4 r8. mi'16 |
+  si4\p dod | si la | si8 la sold fad | mi4 r8 mi'\f |
   mi4. re8 | dod4 re | dod( si) | la2 \bar "|."
 }
 
@@ -37,11 +37,11 @@ alto = \context Voice = "alto" \relative do'' {
   \dynamicDown
   \clef treble
     
-  la4 la | si si | la la | sold r8. sold16 | la4 la | la la | la2 | sold4 r |
+  la4 la | si si | la la | sold r8 sold | la4 la | la la | la2 | sold4 r |
 
-  sold4 la | sold fad | mi red | mi r8. sold16 | sold4. la8 | la4 la | la( sold) | la r |
+  sold4 la | sold fad | mi red | mi r8 sold | sold4. la8 | la4 la | la( sold) | la r |
 
-  sold4 la | sold fad | red8 red red red | mi4 r8. dod'16 | dod4. si8 | la4 la | la( sold) | mi2
+  sold4 la | sold fad | red8 red red red | mi4 r8 dod' | dod4. si8 | la4 la | la( sold) | mi2
 }
 
 
@@ -52,11 +52,11 @@ tenor = \context Voice = "tenor" \relative do' {
   \dynamicUp
   \clef bass
     
-  mi4 mi| mi sold, | la dod | mi r8. mi16 | mi4 la, | fad' fad |mi2 | mi4 r |
+  mi4 mi| mi sold, | la dod | mi r8 mi | mi4 la, | fad' fad |mi2 | mi4 r |
 
-  sold,4 fad | sold dod | si la | sold r8. mi'16 | mi4. la,8 | fad'4 mi | re2 | dod4 r |
+  sold,4 fad | sold dod | si la | sold r8 mi' | mi4. la,8 | fad'4 mi | re2 | dod4 r |
 
-  mi4 mi| mi dod | si8 si si la | sold4 r8. la16 | la4. la8 | la4 si8( fad') | mi4( re) | dod2 
+  mi4 mi| mi dod | si8 si si la | sold4 r8 la | la4. la8 | la4 si8( fad') | mi4( re) | dod2 
 }
 
 
@@ -67,11 +67,11 @@ basse = \context Voice = "basse" \relative do' {
   \dynamicDown
   \clef bass
 
-  la4\f la | sold mi | la la | mi r8. mi16 | la4 la | re, re | mi2 | mi4 r |
+  la4 la | sold mi | la la | mi r8 mi | la4 la | re, re | mi2 | mi4 r |
 
-  mi4 red | mi la | si si, | mi r8. mi16 | mi4. la8 | re,4 mi | mi2 | la4 r |
+  mi4 red | mi la | si si, | mi r8 mi | mi4. la8 | re,4 mi | mi2 | la4 r |
 
-  mi4 mi | mi mi | si8 si si si | mi4 r8. la16 | la4. la8 | la4 re, | mi2 | la,
+  mi4 mi | mi mi | si8 si si si | mi4 r8 la | la4. la8 | la4 re, | mi2 | la,
 }
 
 
@@ -81,33 +81,60 @@ basse = \context Voice = "basse" \relative do' {
 
 texteUn = \lyricmode {
   \set stanza = #"1."
-  Ça, ber -- gers, as -- sem -- blons -- nous, Al -- lons voir le Mes -- sie -- e;
+  Çà, ber -- gers, as -- sem -- blons -- nous,
+  Al -- lons voir le Mes -- sie -- e;
 
-  Cher -- chons cet En -- fant si doux, Dans les bras de Ma -- rie -- e;
+  Cher -- chons cet En -- fant si doux
+  Dans les bras de Ma -- rie -- e;
 
-  Je l'en -- tends, Il nous ap -- pel -- le tous; O sort di -- gne d'en -- vi -- e!
+  Je l'en -- tends, Il nous ap -- pel -- le tous;
+  O sort di -- gne d'en -- vi -- e!
 }
 texteDeux = \lyricmode {
   \set stanza = #"2."
-  Lais -- sons -- là tout le trou -- peau; Qu'il erre à l'a -- ven -- tu -- re;
-  Que sans nous, sur ce cô -- teau, Il cher -- che sa pâ -- tu -- re;
-  Al -- lons voir dans un pe -- tit ber -- ceau, L'au -- teur de la na -- tu -- re.
+  Lais -- sons -- là tout le trou -- peau,
+  Qu'il erre à l'a -- ven -- tu -- re;
+
+  Que sans nous, sur ce cô -- teau
+  Il cher -- che sa pâ -- tu -- re.
+
+  Al -- lons voir dans un pe -- tit ber -- ceau
+  L'au -- teur de la na -- tu -- re.
 }
 texteTrois = \lyricmode {
   \set stanza = #"3."
-  Que l'hi -- ver, par ses fri -- mas, Ait en -- dur -- ci la plai -- ne;
-  S'il croit ar -- rê -- ter ses pas, Cette es -- pé -- rance est vai -- ne;
-  Quand on cher -- che un Dieu rem -- pli d'ap -- pas, On ne craint point de poi -- se.
+
+  Que l'hi -- ver, par ses fri -- mas,
+  Ait en -- dur -- ci la plai -- ne;
+
+  S'il croit ar -- rê -- ter nos pas,
+  Cette es -- pé -- rance est vai -- ne;
+
+  Quand on cher -- che un Dieu rem -- pli d'ap -- pas,
+  On ne craint point la pei -- ne.
 }
 texteQuatre = \lyricmode {
   \set stanza = #"4."
-  Sa nais -- san -- ce sur nos bords Ra -- mè -- ne l'al -- lé -- gres -- se; ré -- pon -- dons par nos trans -- ports, À l'ar -- deur qui le pres -- se; Se -- con -- dons par de nou -- veaux ef -- forts, L'ex -- cès de sa ten -- dres -- se.
+
+  Sa nais -- san -- ce sur nos bords
+  Ra -- mè -- ne l'al -- lé -- gres -- se;
+
+  Ré -- pon -- dons par nos trans -- ports,
+  À l'ar -- deur qui le pres -- se;
+  
+  Se -- con -- dons par de nou -- veaux ef -- forts,
+  L'ex -- cès de sa ten -- dres -- se.
 }
 texteCinq = \lyricmode {
   \set stanza = #"5."
-  Dieu nais -- sant, ex -- au -- ce -- nous, Dis - si -- pe nos al -- ar -- mes;
-  Nous tom -- bons à tes ge -- noux, Nous les bai -- gnons des lar -- mes.
-  Hâ -- te -- toi de nous don -- ner à tous, La paix et tous ses char -- mes.
+  Dieu nais -- sant, ex -- au -- ce -- nous,
+  Dis - si -- pe nos al -- ar -- mes;
+
+  Nous tom -- bons à tes ge -- noux,
+  Nous les bai -- gnons de lar -- mes.
+
+  Hâ -- te -- toi de nous don -- ner à tous,
+  La paix et tous ses char -- mes.
 }
 
 

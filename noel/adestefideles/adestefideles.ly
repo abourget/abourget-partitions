@@ -101,7 +101,7 @@ basse = \context Voice = "basse" \relative c' {
 
 
 texteUn = \lyricmode {
-    \set vocalName = "1."
+    \set stanza = "1."
     %\set shortVocalName = "1."
 
     A -- des -- te fi -- de -- les lae -- ti tri -- um -- phan -- tes,
@@ -110,7 +110,7 @@ texteUn = \lyricmode {
 
 }
 texteDeux = \lyricmode {
-    \set vocalName = "2."
+    \set stanza = "2."
     %\set shortVocalName = "2."
 
     En gre -- ge re -- li -- cto, hu -- mi -- les ad -- cu -- nas
@@ -122,7 +122,7 @@ texteDeux = \lyricmode {
 
 }
 texteTrois = \lyricmode {
-    \set vocalName = "3."
+    \set stanza = "3."
     %\set shortVocalName = "3."
 
     Ae -- ter -- ni Pa -- ren -- tis splen -- do -- rem ae -- ter -- num
@@ -130,7 +130,7 @@ texteTrois = \lyricmode {
     De -- um in -- fan -- tem, pan -- nis in -- vo -- lu -- tum.
 }
 texteQuatre = \lyricmode {
-    \set vocalName = "4."
+    \set stanza = "4."
     %\set shortVocalName = "4."
 
 
@@ -139,31 +139,18 @@ texteQuatre = \lyricmode {
 
 
 
-#(set-global-staff-size 16)
+#(set-global-staff-size 17)
 #(set-default-paper-size "letter")
 
-collelyrics = \override Lyrics.VerticalAxisGroup #'minimum-Y-extent = #'(-1.5 . 1.5)
-collelyricsbas = \override Lyrics.VerticalAxisGroup #'minimum-Y-extent = #'(-0.5 . 1.5)
-collestaff = \override Staff.VerticalAxisGroup #'minimum-Y-extent = #'(-0 . 0)
-italique = {
-    \override Lyrics.LyricText #'font-shape = #'italic
-    \override Lyrics.LyricText #'font-series = #'medium
-}
-medium = {
-    \override Lyrics.LyricText #'font-series = #'medium
-}
 barnum = {
     \override Score.BarNumber #'extra-offset = #'(0 . 0)
 }
-% Ici c'est pour mettre le nom de l'instrument a l'intérieur du staff. Merci! On l'insère dans les Lyrics.
-vocalnamespace = {
-    \override Lyrics.VocalName #'break-align-symbols = #'(key-signature)
-}
+
 tenorbasse = {
-    \set Staff.instrumentName = \markup { \column { "Ténor" { "Basse" } } }
+    \set Staff.instrumentName = \markup { \center-column { "Ténor" { "Basse" } } }
 }
 sopranoalto = {
-    \set Staff.instrumentName = \markup { \column { "Soprano " { "Alto" } } }
+    \set Staff.instrumentName = \markup { \center-column { "Soprano " { "Alto" } } }
 }
 
 
@@ -177,23 +164,23 @@ sopranoalto = {
 		 \bar ":|"
 	     }
 	     \new Lyrics {
-		  \collelyrics
-		  \vocalnamespace
+		  %\collelyrics
+		  %\vocalnamespace
 		  \lyricsto "sop" { \texteUn }
 	     }
 	     \new Lyrics {
-		  \collelyrics
-		  \vocalnamespace
+		  %\collelyrics
+		  %\vocalnamespace
 		  \lyricsto "sop" { \texteDeux }
 	     }
 	     \new Lyrics {
-		  \collelyrics
-		  \vocalnamespace
+		  %\collelyrics
+		  %\vocalnamespace
 		  \lyricsto "sop" { \texteTrois }
 	     }
 	     \new Lyrics {
-		  \collelyrics
-		  \vocalnamespace
+		  %\collelyrics
+		  %\vocalnamespace
 		  \lyricsto "sop" { \texteQuatre }
 	     }
 	     \new Staff {

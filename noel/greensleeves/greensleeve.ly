@@ -1,10 +1,10 @@
 \version "2.12.3"
 
 \header {
-    title = "Greensleeves"
-    %subtitle = ""
+    title = "Quel est l'enfant"
+    subtitle = "Musique: Greensleeves"
     %subsubtitle = ""
-    %poet = ""
+    poet = "Paroles de André Dumont"
     composer = "England, 1500's"
     %meter = ""
     %opus = ""
@@ -18,6 +18,8 @@
 globales = {
   \key c \major
   \time 6/8
+  \partial 8
+
 }
 
 
@@ -28,26 +30,30 @@ sop = \context Voice = "sop" \relative c'' {
     \autoBeamOff
     \clef treble
     \globales
+    \mark "COUPLET"
     
-
         % 1
-    r4. r4 a8 | c4 d8 e8.( fis16) e8 |
+    a8 | c4 d8 e8. fis16 e8 |
         % 3
-    d4 b8 g8.( a16) b8 | c4 a8 a8.( gis16) a8 |
+    d4 b8 g8. a16 b8 | c4 a8 a8. gis16 a8 |
         % 5
-    b4 gis8 e4 a8 | c4 d8 e8. fis16 e8 |
+    b4( gis8) e4 a8 | c4 d8 e8. fis16 e8 |
         % 7
-    d4 b8 g8.( a16) b8 | c8. b16 a8 gis8.( fis16) gis8 |
+    d4 b8 g8. a16 b8 | c8. b16 a8 gis8. fis16 gis8 |
         % 9
-    a2. | g'4. g8.( fis16) e8 |
+    a2. \break |
+    
+    \mark "REFRAIN"
+
+    g'4 g8 g8. fis16 e8 |
         % 11
-    d4 b8 g8.( a16) b8 | c4 a8 a8.( gis16) a8 |
+    d4 b8 g8. a16 b8 | c4 a8 a8. gis16 a8 |
         % 13
-    b4 gis8 e4. |
+    b4( gis8) e4. |
     
     % couplet
     
-    g'4. g8.( fis16) e8 | d4 b8 g8.( a16) b8 |
+    g'4 g8 g8. fis16 e8 | d4 b8 g8. a16 b8 |
     c8. b16 a8 gis8. fis16 gis8 | a2. \bar ":|"
     
 }
@@ -62,23 +68,23 @@ alto = \context Voice = "alto" \relative c'' {
     \globales
     %refrain
 	% 1
-    r4. r4 a8 |
+    a8 |
 	% 2
-    a4 b8 c8.( d16) c8 | b4 g8 e4 g8 |
+    a4 b8 c8. d16 c8 | b4 g8 e4 g8 |
 	% 4
-    a4 f!8 e4 e8 | gis4 e8 d4 e8 |
+    a4 f!8 e4 e8 | gis4( e8) d4 e8 |
 	% 6
     a4 b8 c8. d16 c8 | b4 g!8 e4 e8 |
 	% 8
-    a8. g16 e8 e8.( d16) e8 | e2. |
+    a8. g16 e8 e8. d16 e8 | e2. |
     
     % couplet
     
-    e'4. e8.( d16) c8 | b4 g8 e4 g8 |
+    e'4 e8 e8. d16 c8 | b4 g8 e4 g8 |
         
-    a4 f!8 e4 e8 | gis4 e8 d4. |
+    a4 f!8 e4 e8 | gis4( e8) d4. |
      
-    e'4. e8.( d16) c8 | b4 g8 e4 g8 |
+    e'4 e8 e8. d16 c8 | b4 g8 e4 g8 |
     
     a8. g16 e8 e8. d16 e8 | e2. \bar ":|"
 
@@ -86,8 +92,6 @@ alto = \context Voice = "alto" \relative c'' {
 
 
 tenor = \context Voice = "tenor" \relative c' {
-    \stemUp
-    \slurUp
     \dynamicUp
     \autoBeamOff
     \clef "G_8"
@@ -97,31 +101,29 @@ tenor = \context Voice = "tenor" \relative c' {
     
     %refrain
 	% 1
-    r4. r4 a8 |
+    a8 |
 	% 2
-    e4 g8 a4 a8 | g4 d8 b8.( c16) e8 |
+    e4 g8 a4 a8 | g4 d8 b8. c16 e8 |
 	% 4
-    f!4 c8 c8.( b16) c8 | e4 b8 b4 c8 |
+    f!4 c8 c8. b16 c8 | e4 b8 b4 c8 |
 	% 6
-    e4 g8 a4 a8 | g4 d8 b8.( c16) e8 |
+    e4 g8 a4 a8 | g4 d8 b8. c16 e8 |
 	% 8
     e8. d16 c8 b4 b8 | c2. |
     
     % couplet
     
-    c'4. c8.( a16) g8 | g4 d8 b8.( c16) e8 |
+    c'4 c8 c8. a16 g8 | g4 d8 b8. c16 e8 |
     
-    f!4 c8 c8.( b16) c8 | e4 b8 b4. |
+    f!4 c8 c8. b16 c8 | e4 b8 b4. |
     
-    c'4. c8.( a16) g8 | g4 d8 b8.( c16) e8 |
+    c'4 c8 c8. a16 g8 | g4 d8 b8. c16 e8 |
     
     e8. d16 c8 b8. b16 b8 | c2. \bar ":|"
 }
 
 
 basse = \context Voice = "basse" \relative c' {
-    \stemDown
-    \slurDown
     \dynamicDown
     \autoBeamOff
     \clef bass
@@ -130,7 +132,7 @@ basse = \context Voice = "basse" \relative c' {
 
     %refrain
 	% 1
-    r4. r4 a8 |
+    a8 |
 	% 2
     a4 a8 a4 a8 | g4 g8 g4 g8 |
 	% 4
@@ -158,80 +160,60 @@ basse = \context Voice = "basse" \relative c' {
 
 
 texteUn = \lyricmode {
-    \set vocalName = "1."
+    %\set vocalName = "1."
     %\set shortVocalName = "1."
+  \set stanza = #"1."
 
-    The old year now __ a -- away is fled
-    The New year it __ is en -- te -- red.
-    Then let us now __ \skip 1 our sins down tread
-    And joy -- ful -- ly all __ ap -- pear.
-
-    Lets mer -- ry be this day __
-    and let us now __ both sport and play:
-
-    Hang grief __ cast care a -- way __
-    God send you a Hap -- py New Year.
-    
+    Quel est l'en -- fant qui est né ce soir
+    In -- con -- nu des gens de la ter -- re
+    Quel est l'en -- fant qui est né ce soir
+    Que les pauvr' ont vou -- lu re -- ce -- voir.
 }
 texteDeux = \lyricmode {
-    \set vocalName = "2. 3."
-    %\set shortVocalName = "2."
+  \set stanza = #"2."
 
-    ``ahh'' et ``ohhs''
+    Quel est l'en -- fant qui est né ce soir
+    Pour chan -- ger la nuit en lu -- miè -- re
+    Quel est l'en -- fant qui est né ce soir
+    Tout jo -- yeux comme un feu dans le noir.
+
+
+    Il suf -- fit d'un en -- fant ce soir
+    Pour u -- nir le ciel et la ter__ re
+    Il suf -- fit d'un en -- fant ce soir
+    Pour chan -- ger no -- tre vie en es -- poir.
+
 }
 texteTrois = \lyricmode {
-    \set vocalName = "4."
-    %\set shortVocalName = "3."
+  \set stanza = #"3."
 
-    And now with New Year's gifts
-    each friend __ un -- to each
-    o -- ther they do send;
-    God grant we may all our lives a -- mend
-    and that __ the truth may ap -- pear.
-
-    Now like __ the snake your skin __ cast off of
-    e -- vil thoughts and skin.
-    And so __ the year be -- gin __
-    God send us a Hap -- py New Year!
-}
-texteQuatre = \lyricmode {
-    \set vocalName = "4."
-    %\set shortVocalName = "4."
-
-
+    Quel est l'en -- fant qui est né ce soir
+    Au -- de -- là de tou -- tes fron -- tiè -- res
+    Quel est l'en -- fant qui est né ce soir
+    Si -- non Dieu que je peux re -- ce -- voir.
 }
 
 
 
 
-#(set-global-staff-size 20)
+#(set-global-staff-size 18)
 #(set-default-paper-size "letter")
 
-collelyrics = \override Lyrics.VerticalAxisGroup #'minimum-Y-extent = #'(-1.5 . 1.5)
-collelyricsbas = \override Lyrics.VerticalAxisGroup #'minimum-Y-extent = #'(-0.5 . 1.5)
-collestaff = \override Staff.VerticalAxisGroup #'minimum-Y-extent = #'(-0 . 0)
-italique = {
-    \override Lyrics.LyricText #'font-shape = #'italic
-    \override Lyrics.LyricText #'font-series = #'medium
-}
-medium = {
-    \override Lyrics.LyricText #'font-series = #'medium
-}
 barnum = {
-    \override Score.BarNumber #'extra-offset = #'(0 . 0)
+    \override Score.BarNumber #'extra-offset = #'(-0.5 . 0.5)
 }
 % Ici c'est pour mettre le nom de l'instrument a l'intérieur du staff. Merci! On l'insère dans les Lyrics.
 vocalnamespace = {
     \override Lyrics.VocalName #'break-align-symbols = #'(key-signature)
 }
-tenorbasse = {
-    \set Staff.instrumentName = \markup { \column { "Ténor" { "Basse" } } }
-}
 sopranoalto = {
-    \set Staff.instrumentName = \markup { \column { "Soprano " { "Alto" } } }
+    \set Staff.instrumentName = \markup { \center-column { "Soprano " { "Alto" } } }
 }
 
-
+short = {
+  \override Lyrics . VerticalAxisGroup #'minimum-Y-extent = #'(-0 . 0)
+  \override Staff . VerticalAxisGroup #'minimum-Y-extent = #'(-0 . 0)
+}
 
 \score {
 
@@ -242,27 +224,25 @@ sopranoalto = {
 		 << \sop \\ \alto >>
 	     }
 	     \new Lyrics {
-		  \collelyrics
-		  \vocalnamespace
-		  \lyricsto "sop" \texteUn
+               \lyricsto "sop" { \short \texteUn }
 	     }
 	     \new Lyrics {
-		  \collelyrics
-		  \vocalnamespace
-		  \lyricsto "sop" \texteDeux
+               \lyricsto "sop" { \short \texteDeux }
 	     }
 	     \new Lyrics {
-		  \collelyrics
-		  \vocalnamespace
-		  \lyricsto "sop" \texteTrois
+               \lyricsto "sop" { \short \texteTrois }
 	     }
-	     \new Staff {
+	     \new Staff \with {
+               \override VerticalAxisGroup #'minimum-Y-extent = #'(-0 . 4)
+             } {
+               \set Staff.instrumentName = #"Ténor"
 	       \tenor
-}
-	     
-	     \new Staff {
-		  \tenorbasse
-		  \basse
+             }
+	     \new Staff  \with {
+               \override VerticalAxisGroup #'minimum-Y-extent = #'(-0 . 0)
+             } {
+               \set Staff.instrumentName = #"Basse"
+               \basse
 	     }
     >>
     
@@ -276,7 +256,8 @@ sopranoalto = {
       tempoWholesPerMinute = #(ly:make-moment 94 4)
       }
     }
-
-
+}
+\paper {
+  %between-system-space = 0\mm
 }
 
